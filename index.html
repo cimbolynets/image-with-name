@@ -53,8 +53,12 @@
 
       const params = new URLSearchParams(window.location.search);
 
-      image.src = params.get("image");
-      image.alt = params.get("title");
+      if (params.get("image")) {
+        image.src = params.get("image");
+        image.alt = params.get("title");
+      } else {
+        image.style.display = "none";
+      }
       title.textContent = params.get("title");
     </script>
   </body>
